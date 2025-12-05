@@ -1,0 +1,25 @@
+{
+  "nome_projeto": "Lançamento Smartphone X-2025",
+  "gerente": "Daniel Rodrigues",
+  "data_relatorio": "2025-12-05",
+  "kpis": [
+    {
+      "nome": "Orçamento Gasto",
+      "valor_atual": 45000
+      ,
+      "meta": 50000,
+      "unidade": "BRL"
+    },
+    {
+      "nome": "Testes de Qualidade Aprovados",
+      "valor_atual": 85,
+      "meta": 95,
+      "unidade": "%"
+    }
+  ],
+  "entregaveis": [
+    { "nome": "Especificação Técnica", "status": "Concluído" },
+    { "nome": "Protótipo Alpha", "status": "Em Andamento" },
+    { "nome": "Manual do Usuário", "status": "Pendente" }
+  ]
+}

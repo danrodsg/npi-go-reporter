@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relatório NPI - {{.NomeProjeto}}</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background-color: #f9f9f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .card { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        
+        /* Classes dinâmicas que o Go vai escolher */
+        .status-ok { color: #27ae60; font-weight: bold; background-color: #eafaf1; padding: 2px 8px; border-radius: 4px; }
+        .status-alert { color: #c0392b; font-weight: bold; background-color: #fadbd8; padding: 2px 8px; border-radius: 4px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #eee; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Status Report: {{.NomeProjeto}}</h1>
+    <p><strong>PMO Responsável:</strong> {{.Gerente}} | <strong>Data:</strong> {{.DataRelatorio}}</p>
+
+    <div class="card">
+        <h2>📊 Indicadores de Performance (KPIs)</h2>
+        <ul>
+            {{range .Kpis}}
+            <li style="margin-bottom: 10px; list-style: none;">
+                <span class="{{.StatusClasseCSS}}">{{.StatusTexto}}</span>
+                <strong>{{.Nome}}:</strong> {{.ValorAtual}} (Meta: {{.Meta}} {{.Unidade}})
+            </li>
+            {{end}}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>📁 Entregáveis do Projeto</h2>
+        <table>
+            <tr><th>Item</th><th>Status Atual</th></tr>
+            {{range .Entregaveis}}
+            <tr>
+                <td>{{.Nome}}</td>
+                <td>{{.Status}}</td>
+            </tr>
+            {{end}}
+        </table>
+    </div>
+</body>
+</html>
